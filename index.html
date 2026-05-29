@@ -1,572 +1,806 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Auto Rev Connect</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AUTO REV CONNECT</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body{
-      background:#f5f7fb;
-      color:#111;
-    }
+<style>
 
-    header{
-      background:#081b4b;
-      padding:15px 8%;
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+}
 
-    nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+body{
+background:#f5f7fb;
+color:#111;
+overflow-x:hidden;
+}
 
-    .logo{
-      color:#fff;
-      font-size:30px;
-      font-weight:bold;
-    }
+/* NAVBAR */
 
-    .logo span{
-      color:red;
-    }
+header{
+width:100%;
+background:#041b5a;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+z-index:1000;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
 
-    nav ul{
-      display:flex;
-      list-style:none;
-      gap:25px;
-    }
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
 
-    nav ul li a{
-      color:#fff;
-      text-decoration:none;
-      font-size:17px;
-      transition:0.3s;
-    }
+.logo img{
+width:65px;
+height:65px;
+object-fit:contain;
+background:#fff;
+border-radius:50%;
+padding:5px;
+}
 
-    nav ul li a:hover{
-      color:#ff3b3b;
-    }
+.logo h1{
+color:#fff;
+font-size:32px;
+font-weight:800;
+}
 
-    .hero{
-      background:url('Cover Photo(2).png') center/cover no-repeat;
-      height:90vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:white;
-      position:relative;
-    }
+.logo span{
+color:#ff2b2b;
+}
 
-    .hero::before{
-      content:'';
-      position:absolute;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.65);
-    }
+nav a{
+text-decoration:none;
+color:#fff;
+margin-left:30px;
+font-weight:500;
+transition:0.3s;
+}
 
-    .hero-content{
-      position:relative;
-      z-index:2;
-      width:90%;
-      max-width:900px;
-    }
+nav a:hover{
+color:#ff2b2b;
+}
 
-    .hero h1{
-      font-size:60px;
-      margin-bottom:20px;
-    }
+/* HERO */
 
-    .hero p{
-      font-size:22px;
-      margin-bottom:30px;
-    }
+.hero{
+min-height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+url('banner.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 8%;
+}
 
-    .btn{
-      padding:14px 30px;
-      background:red;
-      color:white;
-      text-decoration:none;
-      border-radius:8px;
-      font-size:18px;
-      transition:0.3s;
-      display:inline-block;
-    }
+.hero-content{
+max-width:900px;
+}
 
-    .btn:hover{
-      background:#c40000;
-    }
+.hero h2{
+font-size:70px;
+color:#fff;
+font-weight:800;
+line-height:1.2;
+margin-bottom:20px;
+}
 
-    section{
-      padding:80px 8%;
-    }
+.hero h2 span{
+color:#ff2b2b;
+}
 
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
-    }
+.hero p{
+color:#fff;
+font-size:20px;
+line-height:1.8;
+margin-bottom:35px;
+}
 
-    .section-title h2{
-      font-size:40px;
-      color:#081b4b;
-    }
+.hero-btns{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
 
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
-    }
+.btn{
+padding:16px 35px;
+border:none;
+font-size:17px;
+font-weight:600;
+border-radius:50px;
+cursor:pointer;
+transition:0.4s;
+text-decoration:none;
+}
 
-    .about img{
-      width:100%;
-      border-radius:15px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.2);
-    }
+.btn-red{
+background:#ff2b2b;
+color:#fff;
+}
 
-    .about-text h3{
-      font-size:35px;
-      margin-bottom:20px;
-      color:#081b4b;
-    }
+.btn-red:hover{
+background:#fff;
+color:#ff2b2b;
+}
 
-    .about-text p{
-      line-height:1.8;
-      font-size:18px;
-    }
+.btn-white{
+background:#fff;
+color:#041b5a;
+}
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:25px;
-      margin-top:40px;
-    }
+.btn-white:hover{
+background:#ff2b2b;
+color:#fff;
+}
 
-    .stat-box{
-      background:white;
-      padding:30px;
-      border-radius:12px;
-      text-align:center;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    }
+/* STATS */
 
-    .stat-box h2{
-      color:red;
-      font-size:40px;
-    }
+.stats{
+padding:80px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:30px;
+margin-top:-70px;
+}
 
-    .services{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
+.stat-box{
+background:#fff;
+padding:40px 25px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.4s;
+}
 
-    .service-box{
-      background:white;
-      padding:30px;
-      border-radius:15px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
+.stat-box:hover{
+transform:translateY(-10px);
+}
 
-    .service-box:hover{
-      transform:translateY(-10px);
-    }
+.stat-box h3{
+font-size:48px;
+color:#ff2b2b;
+margin-bottom:10px;
+}
 
-    .service-box h3{
-      margin-bottom:15px;
-      color:#081b4b;
-    }
+.stat-box p{
+font-size:18px;
+font-weight:600;
+color:#041b5a;
+}
 
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:20px;
-    }
+/* ABOUT */
 
-    .gallery img{
-      width:100%;
-      border-radius:15px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.15);
-    }
+.section{
+padding:100px 8%;
+}
 
-    .pricing{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:30px;
-    }
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
 
-    .price-box{
-      background:white;
-      padding:40px;
-      border-radius:15px;
-      text-align:center;
-      box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    }
+.section-title h2{
+font-size:48px;
+color:#041b5a;
+margin-bottom:15px;
+}
 
-    .price-box h3{
-      font-size:30px;
-      color:#081b4b;
-    }
+.section-title p{
+color:#666;
+font-size:18px;
+}
 
-    .price{
-      font-size:45px;
-      color:red;
-      margin:20px 0;
-      font-weight:bold;
-    }
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:50px;
+align-items:center;
+}
 
-    .price-box ul{
-      list-style:none;
-      margin-bottom:25px;
-    }
+.about img{
+width:100%;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
 
-    .price-box ul li{
-      margin:12px 0;
-    }
+.about-text h3{
+font-size:38px;
+margin-bottom:20px;
+color:#041b5a;
+}
 
-    .contact{
-      background:#081b4b;
-      color:white;
-      text-align:center;
-      border-radius:20px;
-    }
+.about-text p{
+line-height:1.9;
+font-size:17px;
+color:#444;
+margin-bottom:20px;
+}
 
-    .contact h2{
-      margin-bottom:20px;
-      font-size:40px;
-    }
+/* SERVICES */
 
-    .contact p{
-      margin:10px 0;
-      font-size:20px;
-    }
+.services{
+background:#fff;
+}
 
-    footer{
-      background:#05102e;
-      color:white;
-      text-align:center;
-      padding:20px;
-    }
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:30px;
+}
 
-    .whatsapp{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      background:#25D366;
-      color:white;
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:30px;
-      text-decoration:none;
-      box-shadow:0 5px 20px rgba(0,0,0,0.3);
-    }
+.service-card{
+background:#f5f7fb;
+padding:35px;
+border-radius:22px;
+transition:0.4s;
+border-top:5px solid #ff2b2b;
+}
 
-    @media(max-width:900px){
+.service-card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 35px rgba(0,0,0,0.1);
+}
 
-      nav{
-        flex-direction:column;
-        gap:20px;
-      }
+.service-card h3{
+font-size:24px;
+margin-bottom:15px;
+color:#041b5a;
+}
 
-      nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-      }
+.service-card p{
+line-height:1.8;
+color:#555;
+}
 
-      .hero h1{
-        font-size:38px;
-      }
+/* GALLERY */
 
-      .about{
-        grid-template-columns:1fr;
-      }
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
 
-      .stats{
-        grid-template-columns:1fr 1fr;
-      }
+.gallery-grid img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+transition:0.4s;
+}
 
-    }
+.gallery-grid img:hover{
+transform:scale(1.03);
+}
 
-    @media(max-width:600px){
+/* PROCESS */
 
-      .stats{
-        grid-template-columns:1fr;
-      }
+.process{
+background:#041b5a;
+color:#fff;
+}
 
-      .hero{
-        height:80vh;
-      }
+.process .section-title h2{
+color:#fff;
+}
 
-      .hero h1{
-        font-size:30px;
-      }
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
 
-      .hero p{
-        font-size:18px;
-      }
+.process-box{
+background:rgba(255,255,255,0.08);
+padding:35px;
+border-radius:20px;
+text-align:center;
+backdrop-filter:blur(10px);
+}
 
-    }
+.process-box h3{
+font-size:55px;
+color:#ff2b2b;
+margin-bottom:15px;
+}
 
-  </style>
+.process-box h4{
+font-size:24px;
+margin-bottom:15px;
+}
+
+.process-box p{
+line-height:1.8;
+}
+
+/* PRICING */
+
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
+
+.price-card{
+background:#fff;
+border-radius:25px;
+padding:45px 35px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.price-card:hover{
+transform:translateY(-10px);
+}
+
+.popular{
+border:4px solid #ff2b2b;
+}
+
+.tag{
+position:absolute;
+top:20px;
+right:-35px;
+background:#ff2b2b;
+color:#fff;
+padding:10px 45px;
+transform:rotate(45deg);
+font-size:14px;
+font-weight:600;
+}
+
+.price-card h3{
+font-size:34px;
+color:#041b5a;
+margin-bottom:15px;
+}
+
+.price{
+font-size:55px;
+font-weight:800;
+color:#ff2b2b;
+margin-bottom:10px;
+}
+
+.price-card ul{
+list-style:none;
+margin:30px 0;
+}
+
+.price-card ul li{
+padding:12px 0;
+border-bottom:1px solid #eee;
+color:#555;
+}
+
+/* CONTACT */
+
+.contact{
+background:#041b5a;
+color:#fff;
+}
+
+.contact-wrapper{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:50px;
+}
+
+.contact-box h3{
+font-size:34px;
+margin-bottom:20px;
+}
+
+.contact-box p{
+line-height:2;
+font-size:17px;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:16px;
+border:none;
+border-radius:12px;
+margin-bottom:18px;
+font-size:16px;
+}
+
+.contact-form textarea{
+height:140px;
+resize:none;
+}
+
+.contact-form button{
+width:100%;
+padding:18px;
+border:none;
+background:#ff2b2b;
+color:#fff;
+font-size:18px;
+font-weight:600;
+border-radius:12px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+background:#02113a;
+padding:25px;
+text-align:center;
+color:#fff;
+font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+header{
+padding:18px 5%;
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+nav a{
+margin:8px 12px;
+}
+
+.hero h2{
+font-size:42px;
+}
+
+.section-title h2{
+font-size:36px;
+}
+
+.logo h1{
+font-size:24px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
 
-  <nav>
+<div class="logo">
+<img src="logo.png" alt="">
+<h1>AUTO REV <span>CONNECT</span></h1>
+</div>
 
-    <div class="logo">
-      AUTO REV <span>CONNECT</span>
-    </div>
-
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-  </nav>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+</nav>
 
 </header>
 
+<!-- HERO -->
+
 <section class="hero" id="home">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <h1>Professional Automotive Call Center Solutions</h1>
+<h2>Professional Automotive <span>Call Center Solutions</span></h2>
 
-    <p>
-      We Connect. You Grow.
-    </p>
+<p>
+ARC AUTO REV CONNECT provides professional BPO & call center services for automobile dealerships across India.
+We help increase workshop visits, customer retention, service bookings & business growth with trained telecallers.
+</p>
 
-    <a href="#contact" class="btn">
-      Contact Us
-    </a>
+<div class="hero-btns">
+<a href="#contact" class="btn btn-red">Get Started</a>
+<a href="#services" class="btn btn-white">Our Services</a>
+</div>
 
-  </div>
-
-</section>
-
-<section id="about">
-
-  <div class="section-title">
-    <h2>About Us</h2>
-  </div>
-
-  <div class="about">
-
-    <img src="logo.png">
-
-    <div class="about-text">
-
-      <h3>Auto Rev Connect</h3>
-
-      <p>
-        ARC is a professional automotive BPO and call center company dedicated to helping dealerships increase service bookings, customer retention and revenue growth through expert communication solutions.
-      </p>
-
-      <br>
-
-      <p>
-        We specialize in service reminder calls, insurance renewals, PSF/NPS calling, enquiry handling, digital marketing and bulk WhatsApp campaigns.
-      </p>
-
-    </div>
-
-  </div>
-
-  <div class="stats">
-
-    <div class="stat-box">
-      <h2>80+</h2>
-      <p>Executives</p>
-    </div>
-
-    <div class="stat-box">
-      <h2>100+</h2>
-      <p>Clients</p>
-    </div>
-
-    <div class="stat-box">
-      <h2>10+</h2>
-      <p>Years Experience</p>
-    </div>
-
-    <div class="stat-box">
-      <h2>24/7</h2>
-      <p>Support</p>
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-<section id="services">
+<!-- STATS -->
 
-  <div class="section-title">
-    <h2>Our Services</h2>
-  </div>
+<section class="stats">
 
-  <div class="services">
+<div class="stat-box">
+<h3>10+</h3>
+<p>Years Experience</p>
+</div>
 
-    <div class="service-box">
-      <h3>Service Reminder Calls</h3>
-      <p>Vehicle service due reminders for workshops and dealerships.</p>
-    </div>
+<div class="stat-box">
+<h3>80+</h3>
+<p>Executives</p>
+</div>
 
-    <div class="service-box">
-      <h3>Insurance Due Calls</h3>
-      <p>Timely insurance renewal reminder calls for customers.</p>
-    </div>
+<div class="stat-box">
+<h3>100+</h3>
+<p>Clients Served</p>
+</div>
 
-    <div class="service-box">
-      <h3>PSF / NPS Calling</h3>
-      <p>Customer feedback and satisfaction survey calling services.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>Sales Enquiry Calling</h3>
-      <p>Professional sales follow-up for 2 wheeler & 4 wheeler customers.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>Bulk SMS & WhatsApp</h3>
-      <p>Promotional SMS and WhatsApp marketing campaigns.</p>
-    </div>
-
-    <div class="service-box">
-      <h3>Digital Marketing</h3>
-      <p>Facebook, Instagram and Google Business marketing solutions.</p>
-    </div>
-
-  </div>
+<div class="stat-box">
+<h3>24/7</h3>
+<p>Support & Calling</p>
+</div>
 
 </section>
 
-<section id="gallery">
+<!-- ABOUT -->
 
-  <div class="section-title">
-    <h2>Our Office</h2>
-  </div>
+<section class="section" id="about">
 
-  <div class="gallery">
+<div class="section-title">
+<h2>About AUTO REV CONNECT</h2>
+<p>We Connect. You Grow.</p>
+</div>
 
-    <img src="office1.jpg">
+<div class="about">
 
-    <img src="office2.jpg">
+<img src="office1.jpg" alt="">
 
-    <img src="banner.jpg">
+<div class="about-text">
 
-  </div>
+<h3>Automotive Industry BPO Experts</h3>
 
-</section>
+<p>
+ARC AUTO REV CONNECT was formed to provide high-quality and low-cost communication solutions for the automotive industry. We specialize in dealership support services, customer retention programs, PSF/NPS calling, insurance reminders, and service reminder campaigns.
+</p>
 
-<section id="pricing">
+<p>
+Our dedicated team of trained telecallers ensures professional communication with customers to improve workshop footfall, customer satisfaction, and dealership revenue growth.
+</p>
 
-  <div class="section-title">
-    <h2>Pricing Packages</h2>
-  </div>
+<p>
+We proudly serve automotive dealerships across India with trusted and result-oriented call center operations.
+</p>
 
-  <div class="pricing">
+</div>
 
-    <div class="price-box">
-
-      <h3>Starter</h3>
-
-      <div class="price">
-        ₹20,650
-      </div>
-
-      <ul>
-        <li>Up to 3,000 Calls / Month</li>
-        <li>Professional Calling Team</li>
-        <li>Service Reminder Calls</li>
-        <li>Insurance Due Calls</li>
-      </ul>
-
-      <a href="#contact" class="btn">Get Started</a>
-
-    </div>
-
-    <div class="price-box">
-
-      <h3>Popular</h3>
-
-      <div class="price">
-        ₹23,600
-      </div>
-
-      <ul>
-        <li>Up to 4,000 Calls / Month</li>
-        <li>PSF / NPS Calling</li>
-        <li>Dedicated Support</li>
-        <li>High Conversion Campaigns</li>
-      </ul>
-
-      <a href="#contact" class="btn">Get Started</a>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-<section id="contact">
+<!-- SERVICES -->
 
-  <div class="contact">
+<section class="section services" id="services">
 
-    <h2>Contact Us</h2>
+<div class="section-title">
+<h2>Our Services</h2>
+<p>Professional Automotive Calling Solutions</p>
+</div>
 
-    <p>📞 7742838888</p>
+<div class="service-grid">
 
-    <p>📧 autorevconnect@gmail.com</p>
+<div class="service-card">
+<h3>Service Reminder Calls</h3>
+<p>Professional service due reminder calls to increase workshop visits and customer retention.</p>
+</div>
 
-    <p>📍 Professional Automotive Call Center Solutions</p>
+<div class="service-card">
+<h3>Insurance Due Calls</h3>
+<p>Insurance renewal follow-ups to improve dealership insurance conversion and renewals.</p>
+</div>
 
-    <br>
+<div class="service-card">
+<h3>PSF / NPS Calling</h3>
+<p>Customer satisfaction feedback calling for better service quality and dealership ratings.</p>
+</div>
 
-    <a href="https://wa.me/917742838888" class="btn">
-      WhatsApp Now
-    </a>
+<div class="service-card">
+<h3>Sales Enquiry Calling</h3>
+<p>2 Wheeler & 4 Wheeler sales enquiry follow-ups for higher sales conversion.</p>
+</div>
 
-  </div>
+<div class="service-card">
+<h3>Finance Collection</h3>
+<p>EMI & finance due reminder calling with professional communication support.</p>
+</div>
+
+<div class="service-card">
+<h3>Digital Marketing</h3>
+<p>Facebook promotions, Instagram management, ads & WhatsApp marketing campaigns.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="section" id="gallery">
+
+<div class="section-title">
+<h2>Our Office Gallery</h2>
+<p>Professional Calling Environment</p>
+</div>
+
+<div class="gallery-grid">
+
+<img src="office1.jpg" alt="">
+<img src="office2.jpg" alt="">
+<img src="banner.jpg" alt="">
+
+</div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section class="section process">
+
+<div class="section-title">
+<h2>Our Call Center Process</h2>
+<p>From Calls To Revenue Growth</p>
+</div>
+
+<div class="process-grid">
+
+<div class="process-box">
+<h3>01</h3>
+<h4>Effective Calls</h4>
+<p>Professional telecallers connect with customers using trained communication scripts.</p>
+</div>
+
+<div class="process-box">
+<h3>02</h3>
+<h4>Service Information</h4>
+<p>Customers receive service due reminders, warranty details & appointment information.</p>
+</div>
+
+<div class="process-box">
+<h3>03</h3>
+<h4>Booking Confirmation</h4>
+<p>Workshop appointments are confirmed with proper scheduling and follow-ups.</p>
+</div>
+
+<div class="process-box">
+<h3>04</h3>
+<h4>Revenue Growth</h4>
+<p>Increased workshop visits, retention & dealership revenue growth.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PRICING -->
+
+<section class="section" id="pricing">
+
+<div class="section-title">
+<h2>Pricing Packages</h2>
+<p>Affordable Professional Calling Solutions</p>
+</div>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+
+<h3>Starter</h3>
+
+<div class="price">₹20,650</div>
+
+<p>Per Month</p>
+
+<ul>
+<li>Up to 3,000 Calls / Month</li>
+<li>Professional Telecallers</li>
+<li>Service Reminder Calling</li>
+<li>Insurance Reminder Calling</li>
+<li>PSF / NPS Calling</li>
+<li>Booking Follow-up Excluded</li>
+</ul>
+
+<a href="#contact" class="btn btn-red">Choose Plan</a>
+
+</div>
+
+<div class="price-card popular">
+
+<div class="tag">POPULAR</div>
+
+<h3>Popular</h3>
+
+<div class="price">₹23,600</div>
+
+<p>Per Month</p>
+
+<ul>
+<li>Up to 4,000 Calls / Month</li>
+<li>Dedicated Calling Support</li>
+<li>Workshop Follow-ups</li>
+<li>Insurance Reminder Calls</li>
+<li>Sales Enquiry Calling</li>
+<li>Booking Follow-up Excluded</li>
+</ul>
+
+<a href="#contact" class="btn btn-red">Choose Plan</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+
+<div class="contact-wrapper">
+
+<div class="contact-box">
+
+<h3>Contact Us</h3>
+
+<p>
+AUTO REV CONNECT<br><br>
+
+Professional Automotive Call Center Solutions<br><br>
+
+📞 +91 XXXXX XXXXX<br>
+📧 autorevconnect@gmail.com<br>
+📍 India
+</p>
+
+</div>
+
+<div class="contact-form">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<input type="text" placeholder="Phone Number">
+
+<textarea placeholder="Your Message"></textarea>
+
+<button>Send Enquiry</button>
+
+</div>
+
+</div>
 
 </section>
 
 <footer>
-
-  <p>
-    © 2026 Auto Rev Connect | We Connect. You Grow.
-  </p>
-
+© 2026 AUTO REV CONNECT | WE CONNECT. YOU GROW.
 </footer>
-
-<a class="whatsapp" href="https://wa.me/917742838888">
-  💬
-</a>
 
 </body>
 </html>
