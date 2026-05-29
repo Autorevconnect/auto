@@ -1,226 +1,385 @@
-export default function AutoRevConnectWebsite() {
-  const services = [
-    'Service Reminder Calls',
-    'Insurance Due Follow-Ups',
-    'PSF / NPS Calling',
-    'Vehicle Enquiry Handling',
-    'Finance Collection Calling',
-    'Marketing Campaigns',
-    'Bulk SMS & WhatsApp Services',
-    'Digital Marketing Solutions',
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUTO REV CONNECT</title>
 
-  const gallery = [
-    'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop',
-  ];
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  return (
-    <div className="bg-white text-gray-900 min-h-screen">
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center font-bold text-xl">
-              ARC
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-blue-900">AUTO REV CONNECT</h1>
-              <p className="text-sm text-gray-500">We Connect. You Grow.</p>
-            </div>
-          </div>
+<style>
 
-          <div className="hidden md:flex gap-6 font-medium">
-            <a href="#about" className="hover:text-red-600">About</a>
-            <a href="#services" className="hover:text-red-600">Services</a>
-            <a href="#gallery" className="hover:text-red-600">Gallery</a>
-            <a href="#contact" className="hover:text-red-600">Contact</a>
-          </div>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-blue-950 to-blue-700 text-white py-24 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-5xl font-bold leading-tight mb-6">
-              Professional Automotive Call Center Solutions
-            </h2>
-
-            <p className="text-lg text-gray-200 mb-8 leading-8">
-              AUTO REV CONNECT helps automotive dealerships and businesses improve customer engagement, follow-ups, and business growth with professional calling and digital solutions.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="https://wa.me/917742838888"
-                className="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-2xl font-semibold shadow-xl"
-              >
-                WhatsApp Us
-              </a>
-
-              <a
-                href="tel:7742838888"
-                className="bg-white text-blue-900 px-8 py-4 rounded-2xl font-semibold shadow-xl"
-              >
-                Call Now
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
-              alt="Call Center"
-              className="rounded-3xl shadow-2xl"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-14 bg-gray-100">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
-          <div className="bg-white p-8 rounded-3xl shadow-lg">
-            <h3 className="text-5xl font-bold text-red-600">40+</h3>
-            <p className="mt-3 text-lg">Professional Executives</p>
-          </div>
-
-          <div className="bg-white p-8 rounded-3xl shadow-lg">
-            <h3 className="text-5xl font-bold text-red-600">80+</h3>
-            <p className="mt-3 text-lg">Automotive Clients</p>
-          </div>
-
-          <div className="bg-white p-8 rounded-3xl shadow-lg">
-            <h3 className="text-5xl font-bold text-red-600">24/7</h3>
-            <p className="mt-3 text-lg">Customer Support Focus</p>
-          </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section id="about" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
-            alt="Office"
-            className="rounded-3xl shadow-2xl"
-          />
-
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-blue-900">About AUTO REV CONNECT</h2>
-
-            <p className="text-lg leading-8 text-gray-700 mb-6">
-              Based in Sikar, Rajasthan, AUTO REV CONNECT is a growing automotive-focused call center company helping dealerships improve customer relationships, follow-up systems, service reminders, insurance renewals, and lead conversions.
-            </p>
-
-            <p className="text-lg leading-8 text-gray-700">
-              Our trained team delivers professional communication support for two-wheeler and four-wheeler dealerships across India.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section id="services" className="py-24 bg-gray-100 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-blue-900 mb-14">
-            Our Services
-          </h2>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-3xl shadow-lg hover:-translate-y-2 transition duration-300"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center text-2xl mb-5">
-                  ✓
-                </div>
-                <h3 className="text-xl font-semibold leading-8">{service}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section id="gallery" className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-blue-900 mb-14">
-            Office & Team Gallery
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {gallery.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt="Gallery"
-                className="rounded-3xl shadow-2xl hover:scale-105 transition duration-500"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="py-24 bg-blue-950 text-white px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Get In Touch</h2>
-
-          <p className="text-xl text-gray-300 mb-10 leading-8">
-            Looking for professional automotive calling solutions for your dealership or business?
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-10">
-            <div className="bg-white/10 rounded-3xl p-8">
-              <h3 className="text-2xl font-bold mb-3">Call</h3>
-              <p>7742838888</p>
-            </div>
-
-            <div className="bg-white/10 rounded-3xl p-8">
-              <h3 className="text-2xl font-bold mb-3">Email</h3>
-              <p>autorevconnect@gmail.com</p>
-            </div>
-
-            <div className="bg-white/10 rounded-3xl p-8">
-              <h3 className="text-2xl font-bold mb-3">Location</h3>
-              <p>Sikar, Rajasthan</p>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="https://www.instagram.com/autorevconnect/"
-              className="bg-red-600 px-8 py-4 rounded-2xl font-semibold"
-            >
-              Instagram
-            </a>
-
-            <a
-              href="https://www.facebook.com/profile.php?id=61590008597524"
-              className="bg-white text-blue-900 px-8 py-4 rounded-2xl font-semibold"
-            >
-              Facebook
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-black text-gray-400 text-center py-6">
-        © 2026 AUTO REV CONNECT — All Rights Reserved.
-      </footer>
-
-      {/* Floating WhatsApp */}
-      <a
-        href="https://wa.me/917742838888"
-        className="fixed bottom-6 right-6 bg-green-500 text-white px-5 py-4 rounded-full shadow-2xl text-lg font-bold"
-      >
-        WhatsApp
-      </a>
-    </div>
-  );
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
+
+body{
+background:#f5f7fb;
+color:#111;
+}
+
+header{
+background:#081b4b;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+}
+
+.logo span{
+color:#ff3131;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+}
+
+.hero{
+padding:80px 8%;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:50px;
+background:linear-gradient(to right,#081b4b,#103fa5);
+color:white;
+}
+
+.hero h1{
+font-size:55px;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 30px;
+background:#ff3131;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:600;
+margin-right:15px;
+}
+
+.hero img{
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.section{
+padding:80px 8%;
+}
+
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+color:#081b4b;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.stat-box{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.stat-box h2{
+font-size:50px;
+color:#ff3131;
+margin-bottom:10px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.service{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.service:hover{
+transform:translateY(-10px);
+}
+
+.service h3{
+margin-top:15px;
+font-size:22px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:20px;
+height:300px;
+object-fit:cover;
+}
+
+.contact{
+background:#081b4b;
+color:white;
+text-align:center;
+padding:80px 8%;
+}
+
+.contact-boxes{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+margin-top:40px;
+}
+
+.contact-box{
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+}
+
+footer{
+background:black;
+color:#aaa;
+text-align:center;
+padding:20px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+}
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.stats,
+.services,
+.gallery,
+.contact-boxes{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+AUTO <span>REV</span> CONNECT
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Gallery</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1>Professional Automotive Call Center Solutions</h1>
+
+<p>
+AUTO REV CONNECT helps automotive dealerships improve customer engagement, service reminders, insurance renewals, PSF/NPS calling and lead follow-ups with professional calling solutions.
+</p>
+
+<a href="https://wa.me/917742838888" class="btn">WhatsApp</a>
+
+<a href="tel:7742838888" class="btn">Call Now</a>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Our Strength</h2>
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>40+</h2>
+<p>Professional Executives</p>
+</div>
+
+<div class="stat-box">
+<h2>80+</h2>
+<p>Happy Clients</p>
+</div>
+
+<div class="stat-box">
+<h2>24/7</h2>
+<p>Customer Support Focus</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Our Services</h2>
+
+<div class="services">
+
+<div class="service">
+<h3>Service Reminder Calls</h3>
+</div>
+
+<div class="service">
+<h3>Insurance Due Calls</h3>
+</div>
+
+<div class="service">
+<h3>PSF / NPS Calling</h3>
+</div>
+
+<div class="service">
+<h3>Vehicle Enquiry Handling</h3>
+</div>
+
+<div class="service">
+<h3>Finance Collection Calling</h3>
+</div>
+
+<div class="service">
+<h3>Marketing Campaigns</h3>
+</div>
+
+<div class="service">
+<h3>Bulk SMS & WhatsApp</h3>
+</div>
+
+<div class="service">
+<h3>Digital Marketing</h3>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Office Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h2 class="section-title" style="color:white;">Contact Us</h2>
+
+<div class="contact-boxes">
+
+<div class="contact-box">
+<h3>Call</h3>
+<p>7742838888</p>
+</div>
+
+<div class="contact-box">
+<h3>Email</h3>
+<p>autorevconnect@gmail.com</p>
+</div>
+
+<div class="contact-box">
+<h3>Address</h3>
+<p>Sikar, Rajasthan</p>
+</div>
+
+</div>
+
+<br><br>
+
+<a href="https://www.instagram.com/autorevconnect/?hl=en" class="btn">Instagram</a>
+
+<a href="https://www.facebook.com/profile.php?id=61590008597524" class="btn">Facebook</a>
+
+</section>
+
+<footer>
+
+© 2026 AUTO REV CONNECT — All Rights Reserved.
+
+</footer>
+
+<a href="https://wa.me/917742838888" class="whatsapp">
+WhatsApp
+</a>
+
+</body>
+</html>
